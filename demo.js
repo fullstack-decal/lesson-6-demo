@@ -12,14 +12,12 @@ const add2 = (a, b) => {
 
 console.log("Compare regular vs arrow functions:", add(3, 5), add2(3, 5));
 
-return;
+//return;
 
-hoisted = 5;
-var hoisted; // What if you comment this out?
+//hoisted = 5;
 
-console.log("Let's see what hoisted is:", hoisted);
+//console.log("Let's see what hoisted is:", hoisted);
 
-return;
 
 function varInFunction() {
     var foo = 5;
@@ -51,7 +49,6 @@ function letInBlockInFunction() {
 }
 letInBlockInFunction();
 
-return;
 
 const me = {
     petName: "dog",
@@ -68,15 +65,11 @@ const me = {
 
 console.log("If `this` refers to `me`, I should get my pet's name:", me.getPetName());
 
-return;
-
 const stolenMorePets = me.morePets;
 stolenMorePets();
 stolenMorePets();
 // WWJsD
 console.log("If `this` refers to `me`, I should have 3 pets:", me.numberOfPets);
-
-return;
 
 const you = {
     petName: "cat",
@@ -90,14 +83,10 @@ youCanHaveThem();
 // WWJsD
 console.log("If `this` refers to `you`, you should get 3 pets:", you.numberOfPets);
 
-return;
-
 you.defineFnLater = me.getPetName;
 
 // WWJsD
 console.log("If `this` is re-bound, you should see your pet's name:", you.defineFnLater());
-
-return;
 
 const justALittleSillyThing = {
     petName: "hamster",
@@ -110,8 +99,6 @@ const justALittleSillyThing = {
 // WWJsD
 console.log("If `this` refers to `justALittleSillyThing`, I should get my pet's name:",
     justALittleSillyThing.getPetNameButIAmLying());
-
-return;
 
 function callbackHell() {
     setTimeout(() => console.log("Late for school"), 1000);
@@ -133,10 +120,12 @@ function callbackHell() {
         }
     );
 }
-callbackHell(); // Comment this after
+//callbackHell(); // Comment this after
 console.log("Why does this text appear so early?");
 
-return;
+//setTimeout(() => console.log("Late for school1"), 0);
+//setTimeout(() => console.log("Late for school2"), 0);
+//setTimeout(() => console.log("Late for school3"), 0);
 
 const betterJob = (willSucceed, time) => new Promise((res, rej) => {
     if (willSucceed) {
@@ -171,12 +160,10 @@ function promiseChained() {
             () => Promise.reject("Nvm job failed"),
             () => console.log("Job failed")
         ).catch(
-            () => console.log("Wait what?")
+            (e) => console.log(e)
         );
 }
-promiseChained(); // Comment this after
-
-return;
+//promiseChained(); // Comment this after
 
 async function promiseAsync() {
     const actuallyResolvesSomething = (willSucceed, time, val) => new Promise((res, rej) => {
